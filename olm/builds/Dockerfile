@@ -1,16 +1,27 @@
-FROM container-registry.oracle.com/os/oraclelinux:8
-COPY rpms /tmp/
-RUN dnf install -y /tmp/*.rpm &&\
-    dnf clean all &&\
-    rm -rf /var/cache/yum/* /tmp/*.rpm
+FROM container-registry.oracle.com/os/oraclelinux:9 AS builder
 
-FROM container-registry.oracle.com/os/oraclelinux:8-slim
+RUN dnf config-manager --enable ol9_codeready_builder && \
+    dnf -y install git make golang hostname yarnpkg bzip2 && \
+    curl -fsSL https://rpm.nodesource.com/setup_22.x | bash - && \
+    dnf install -y nodejs && \
+    go version
 
-COPY --from=0 /usr/share/licenses/prometheus /usr/share/licenses/prometheus
-COPY --from=0 /bin/prometheus /bin/prometheus
+# Copy the contents of the repository
+COPY . /workspace/go/src/github.com/oracle-cne/prometheus
+
+ENV GOPATH=/workspace/go CGO_ENABLED=0
+ENV GOPATH_SRC=$GOPATH/src/github.com/oracle-cne/prometheus
+WORKDIR /workspace/go/src/github.com/oracle-cne/prometheus
+
+RUN git config --global --add safe.directory $(pwd) && \
+    sh olm/go-build.sh
+
+FROM container-registry.oracle.com/os/oraclelinux:9-slim
+
+COPY --from=builder /workspace/go/src/github.com/oracle-cne/prometheus/bin/prometheus /bin/prometheus
 COPY --from=0 /bin/promtool /bin/promtool
 COPY --from=0 /etc/prometheus /etc/prometheus
-COPY LICENSE THIRD_PARTY_LICENSES.txt NOTICE olm/SECURITY.md /usr/share/licenses/
+COPY LICENSE THIRD_PARTY_LICENSES.txt NOTICE olm/SECURITY.md /usr/share/licenses/prometheus/
 RUN ln -s /etc/prometheus/ &&\
     mkdir -p /prometheus &&\
     chown -R nobody:nobody etc/prometheus /prometheus &&\
