@@ -28,8 +28,7 @@ RUN ln -s /etc/prometheus/ &&\
     test -d /LICENSES || ln -s /usr/share/licenses /LICENSES
 
 RUN microdnf update -y && \
-    microdnf clean all && \
-    rm -rf /var/cache/yum/*
+    microdnf clean all
 
 USER       nobody
 EXPOSE     9090
