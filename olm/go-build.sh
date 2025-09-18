@@ -28,7 +28,8 @@ podman rm tmpcopy
 yq -i '.build.flags = "-trimpath=false"' .promu.yml
 yq -i '.build.ldflags += "-X main.version=v${.Version}"' .promu.yml
 
-make build
+make assets npm_licenses assets-compress plugins
+promu build
 
 #go build -trimpath=false -v -o bin/ \
 #    -ldflags "${ldflags}" \
