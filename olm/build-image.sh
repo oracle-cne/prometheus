@@ -5,6 +5,16 @@ version="3.5.0"
 registry="container-registry.oracle.com/olcne"
 docker_tag=${registry}/${name}:v${version}
 
+patch < olm/package.json.patch
+yq -i '.build.flags = "-trimpath=false"' .promu.yml
+yq -i '.build.ldflags += "-X main.version=v${version}"' .promu.yml
+
+# Copy the promu tool from the container image
+mkdir -p bin
+podman create --pull always --name tmpcopy container-registry.oracle.com/olcne/promu:v0.17.0
+podman cp tmpcopy:/bin/promu bin/promu
+podman rm tmpcopy
+
 docker build --pull \
     --build-arg https_proxy=${https_proxy} \
     -t ${docker_tag} -f ./olm/builds/Dockerfile .

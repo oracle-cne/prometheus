@@ -13,14 +13,7 @@ ldflags="
         -X github.com/prometheus/common/version.BuildUser=${USER}@${HOST}
         -X github.com/prometheus/common/version.BuildDate=${BUILD_DATE}"
 
-patch < olm/package.json.patch
-yq -i '.build.flags = "-trimpath=false"' .promu.yml
-yq -i '.build.ldflags += "-X main.version=v${.Version}"' .promu.yml
 
-# Copy the promu tool from the container image
-podman create --pull always --name tmpcopy container-registry.oracle.com/olcne/promu:v0.17.0
-podman cp tmpcopy:/bin/promu "$GOPATH"/bin
-podman rm tmpcopy
 
 node --version
 npm --version
