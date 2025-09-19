@@ -19,9 +19,9 @@ yq -i '.build.ldflags += "-X main.version=v${version}"' .promu.yml
 
 echo "npm version"
 npm version
-echo "node version"
+echo "node --version"
 node --version
-echo "yarn version"
+echo "yarn --version"
 yarn --version
 go version
 
