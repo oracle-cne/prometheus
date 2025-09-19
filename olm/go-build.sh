@@ -25,6 +25,6 @@ echo "yarn --version"
 yarn --version
 go version
 
-PROMU=/usr/bin/promu
+
 make assets npm_licenses assets-compress plugins
 promu build

@@ -11,7 +11,8 @@ podman create --pull always --name tmpcopy container-registry.oracle.com/olcne/p
 podman cp tmpcopy:/bin/promu bin/promu
 podman rm tmpcopy
 
-docker build --pull \
+podman build --pull \
     --build-arg https_proxy=${https_proxy} \
+    --volume /etc/yum.repos.d:/etc/yum.repos.d \
     -t ${docker_tag} -f ./olm/builds/Dockerfile .
-docker save -o ${name}.tar ${docker_tag}
+podman save -o ${name}.tar ${docker_tag}
