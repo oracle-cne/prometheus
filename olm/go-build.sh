@@ -17,15 +17,14 @@ patch  --no-backup-if-mismatch -p0 --fuzz=0 < olm/package.json.patch
 yq -i '.build.flags = "-trimpath=false"' .promu.yml
 yq -i '.build.ldflags += "-X main.version=v${version}"' .promu.yml
 
+echo "npm version"
+npm version
+echo "node version"
 node --version
-npm --version
-#yarn --version
+echo "yarn version"
+yarn --version
 go version
 
+PROMU=/usr/bin/promu
 make assets npm_licenses assets-compress plugins
 promu build
-
-#go build -trimpath=false -v -o bin/ \
-#    -ldflags "${ldflags}" \
-#    "${GOPATH_SRC}"/cmd/alertmanager \
-#    "${GOPATH_SRC}"/cmd/amtool
