@@ -11,6 +11,8 @@ podman create --pull always --name tmpcopy container-registry.oracle.com/olcne/p
 podman cp tmpcopy:/bin/promu bin/promu
 podman rm tmpcopy
 
+patch < olm/package.json.patch
+
 docker build --pull \
     --build-arg https_proxy=${https_proxy} \
     -t ${docker_tag} -f ./olm/builds/Dockerfile .

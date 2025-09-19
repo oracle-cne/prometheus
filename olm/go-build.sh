@@ -13,14 +13,13 @@ ldflags="
         -X github.com/prometheus/common/version.BuildUser=${USER}@${HOST}
         -X github.com/prometheus/common/version.BuildDate=${BUILD_DATE}"
 
-patch < olm/package.json.patch
 yq -i '.build.flags = "-trimpath=false"' .promu.yml
 yq -i '.build.ldflags += "-X main.version=v${version}"' .promu.yml
 
 node --version
 npm --version
 #yarn --version
-go --version
+go version
 
 make assets npm_licenses assets-compress plugins
 promu build
