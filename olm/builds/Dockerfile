@@ -7,7 +7,7 @@ RUN dnf config-manager --enable ol9_codeready_builder && \
     dnf config-manager --enable ol9_developer_EPEL && \
     dnf module enable -y nodejs:22 && \
     dnf install -y nodejs npm && \
-    dnf -y install git make golang hostname bzip2 yq yarnpkg && \
+    dnf -y install git make golang hostname bzip2 yq yarnpkg patch && \
     go version
 
 # Copy the contents of the repository
