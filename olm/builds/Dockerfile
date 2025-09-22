@@ -1,6 +1,7 @@
 FROM container-registry.oracle.com/os/oraclelinux:9 AS builder
 
-RUN cat ~/.npmrc
+ENV NPM_CONFIG_USERCONFIG=/.npmrc
+RUN cat /.npmrc
 
 RUN dnf config-manager --enable ol9_codeready_builder && \
     dnf install -y oracle-epel-release-el9 && \
