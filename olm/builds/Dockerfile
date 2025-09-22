@@ -1,9 +1,7 @@
 FROM container-registry.oracle.com/os/oraclelinux:9 AS builder
 
-RUN dnf repolist --all
+RUN dnf cat ~/.npmrc
 
-#    dnf install -y oracle-ocne-release-el9 && \
-#    dnf config-manager --enable ol9_olcne19 && \
 RUN dnf config-manager --enable ol9_codeready_builder && \
     dnf install -y oracle-epel-release-el9 && \
     dnf config-manager --enable ol9_developer_EPEL && \
