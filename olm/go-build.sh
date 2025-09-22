@@ -25,6 +25,8 @@ echo "yarn --version"
 yarn --version
 go version
 
-
+echo "make assets npm_licenses assets-compress plugins"
 make assets npm_licenses assets-compress plugins
+
+echo "promu build"
 promu build

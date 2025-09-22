@@ -1,8 +1,5 @@
 FROM container-registry.oracle.com/os/oraclelinux:9 AS builder
 
-ENV NPM_CONFIG_USERCONFIG=/.npmrc
-RUN cat /.npmrc
-
 RUN dnf config-manager --enable ol9_codeready_builder && \
     dnf install -y oracle-epel-release-el9 && \
     dnf config-manager --enable ol9_developer_EPEL && \
@@ -14,6 +11,7 @@ RUN dnf config-manager --enable ol9_codeready_builder && \
 # Copy the contents of the repository
 COPY . /workspace/go/src/github.com/oracle-cne/prometheus
 
+ENV NPM_CONFIG_USERCONFIG=/.npmrc
 ENV GOPATH=/workspace/go CGO_ENABLED=0
 ENV GOPATH_SRC=$GOPATH/src/github.com/oracle-cne/prometheus
 WORKDIR /workspace/go/src/github.com/oracle-cne/prometheus
@@ -24,9 +22,9 @@ RUN git config --global --add safe.directory $(pwd) && \
 
 FROM container-registry.oracle.com/os/oraclelinux:9-slim
 
-COPY --from=builder /workspace/go/src/github.com/oracle-cne/prometheus/bin/prometheus /bin/prometheus
-COPY --from=0 /bin/promtool /bin/promtool
-COPY --from=0 /etc/prometheus /etc/prometheus
+COPY --from=builder /workspace/go/src/github.com/oracle-cne/prometheus/prometheus /bin/prometheus
+COPY --from=builder /workspace/go/src/github.com/oracle-cne/prometheus/bin/promtool /bin/promtool
+COPY documentation/examples/prometheus.yml /etc/prometheus
 COPY LICENSE THIRD_PARTY_LICENSES.txt NOTICE olm/SECURITY.md /usr/share/licenses/prometheus/
 RUN ln -s /etc/prometheus/ &&\
     mkdir -p /prometheus &&\
