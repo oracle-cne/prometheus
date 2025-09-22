@@ -2,14 +2,14 @@ FROM container-registry.oracle.com/os/oraclelinux:9 AS builder
 
 RUN dnf repolist --all
 
+#    dnf install -y oracle-ocne-release-el9 && \
+#    dnf config-manager --enable ol9_olcne19 && \
 RUN dnf config-manager --enable ol9_codeready_builder && \
-    dnf install -y oracle-ocne-release-el9 && \
-    dnf config-manager --enable ol9_olcne19 && \
     dnf install -y oracle-epel-release-el9 && \
     dnf config-manager --enable ol9_developer_EPEL && \
     dnf module enable -y nodejs:22 && \
     dnf install -y nodejs npm && \
-    dnf -y install git make golang hostname bzip2 yq yarnpkg patch && \
+    dnf -y install git make golang bzip2 yq yarnpkg patch && \
     go version
 
 # Copy the contents of the repository

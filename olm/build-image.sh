@@ -14,5 +14,6 @@ podman rm tmpcopy
 podman build --pull \
     --build-arg https_proxy=${https_proxy} \
     --volume /etc/yum.repos.d:/etc/yum.repos.d \
+    --volume ~/.npmrc:/.npmrc \
     -t ${docker_tag} -f ./olm/builds/Dockerfile .
 podman save -o ${name}.tar ${docker_tag}
