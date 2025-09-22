@@ -28,5 +28,5 @@ go version
 echo "make assets npm_licenses assets-compress plugins"
 make assets npm_licenses assets-compress plugins
 
-echo "promu build"
-promu build
+echo "promtool build"
+promtool build

@@ -8,7 +8,7 @@ docker_tag=${registry}/${name}:v${version}
 # Copy the promu tool from the container image
 mkdir -p bin
 podman create --pull always --name tmpcopy container-registry.oracle.com/olcne/promu:v0.17.0
-podman cp tmpcopy:/bin/promu bin/promu
+podman cp tmpcopy:/bin/promu bin/promtool
 podman rm tmpcopy
 
 podman build --pull \
