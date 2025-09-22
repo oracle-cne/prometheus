@@ -934,7 +934,13 @@ github.com/containerd/errdefs
 SPDX:Apache-2.0
 
 == Copyright
-(no copyright notices found)
+Copyright 2020 GitHub noreply@github.com
+Copyright 2021 GitHub noreply@github.com
+Copyright 2021 Harvey Tuch htuch@google.com
+Copyright 2022 GitHub noreply@github.com
+Copyright 2023 GitHub noreply@github.com
+Copyright 2024 GitHub noreply@github.com
+Copyright 2025 GitHub noreply@github.com
 
 --------------------------------- (separator) ----------------------------------
 
@@ -3697,7 +3703,7 @@ github.com/puzpuzpuz/xsync/v3
 SPDX:Apache-2.0
 
 == Copyright
-(no copyright notices found)
+Copyright The OpenTelemetry Authors
 
 --------------------------------- (separator) ----------------------------------
 
@@ -3842,8 +3848,7 @@ go.opentelemetry.io/auto/sdk
 SPDX:Apache-2.0
 
 == Copyright
-Copyright notice. Initial version of the following tests was based on
-Copyright notice. The following tests are partially based on
+Copyright The OpenTelemetry Authors
 
 --------------------------------- (separator) ----------------------------------
 
@@ -3876,7 +3881,12 @@ go.opentelemetry.io/collector/confmap/xconfmap
 SPDX:Apache-2.0
 
 == Copyright
-(no copyright notices found)
+Copyright (c) 2013 Mitchell Hashimoto
+Copyright (c) 2013 The Go Authors. All rights reserved.
+Copyright (c) 2017 Uber Technologies, Inc.
+Copyright 2014 gRPC authors.
+Copyright 2016 Michal Witkowski. All Rights Reserved.
+Copyright The OpenTelemetry Authors
 
 --------------------------------- (separator) ----------------------------------
 
@@ -3909,7 +3919,12 @@ go.opentelemetry.io/collector/internal/telemetry
 SPDX:Apache-2.0
 
 == Copyright
-(no copyright notices found)
+Copyright (c) 2013 Mitchell Hashimoto
+Copyright (c) 2013 The Go Authors. All rights reserved.
+Copyright (c) 2017 Uber Technologies, Inc.
+Copyright 2014 gRPC authors.
+Copyright 2016 Michal Witkowski. All Rights Reserved.
+Copyright The OpenTelemetry Authors
 
 --------------------------------- (separator) ----------------------------------
 
@@ -3920,7 +3935,12 @@ go.opentelemetry.io/collector/pdata
 SPDX:Apache-2.0
 
 == Copyright
-(no copyright notices found)
+Copyright (c) 2013 Mitchell Hashimoto
+Copyright (c) 2013 The Go Authors. All rights reserved.
+Copyright (c) 2017 Uber Technologies, Inc.
+Copyright 2014 gRPC authors.
+Copyright 2016 Michal Witkowski. All Rights Reserved.
+Copyright The OpenTelemetry Authors
 
 --------------------------------- (separator) ----------------------------------
 
@@ -3953,7 +3973,12 @@ go.opentelemetry.io/collector/semconv
 SPDX:Apache-2.0
 
 == Copyright
-(no copyright notices found)
+Copyright (c) 2013 Mitchell Hashimoto
+Copyright (c) 2013 The Go Authors. All rights reserved.
+Copyright (c) 2017 Uber Technologies, Inc.
+Copyright 2014 gRPC authors.
+Copyright 2016 Michal Witkowski. All Rights Reserved.
+Copyright The OpenTelemetry Authors
 
 --------------------------------- (separator) ----------------------------------
 
@@ -3975,7 +4000,12 @@ go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace
 SPDX:Apache-2.0
 
 == Copyright
-(no copyright notices found)
+Copyright (c) 2013 Mitchell Hashimoto
+Copyright (c) 2013 The Go Authors. All rights reserved.
+Copyright (c) 2017 Uber Technologies, Inc.
+Copyright 2014 gRPC authors.
+Copyright 2016 Michal Witkowski. All Rights Reserved.
+Copyright The OpenTelemetry Authors
 
 --------------------------------- (separator) ----------------------------------
 
@@ -4008,7 +4038,14 @@ go.opentelemetry.io/otel/exporters/otlp/otlptrace
 SPDX:Apache-2.0
 
 == Copyright
-(no copyright notices found)
+Copyright (c) 2016-2017 Uber Technologies, Inc.
+Copyright (c) 2017 Uber Technologies, Inc.
+Copyright (c) 2021 The Jaeger Authors.
+Copyright 2009 The Go Authors.
+Copyright 2014 gRPC authors.
+Copyright 2017, OpenCensus Authors
+Copyright 2023 The Go Authors. All rights reserved.
+Copyright The OpenTelemetry Authors
 
 --------------------------------- (separator) ----------------------------------
 
@@ -4032,7 +4069,9 @@ go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp
 SPDX:Apache-2.0
 
 == Copyright
-(no copyright notices found)
+Copyright 2009 The Go Authors. All rights reserved.
+Copyright 2022 The Go Authors. All rights reserved.
+Copyright The OpenTelemetry Authors
 
 --------------------------------- (separator) ----------------------------------
 
