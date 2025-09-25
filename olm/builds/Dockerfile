@@ -26,13 +26,12 @@ COPY --from=builder /workspace/go/src/github.com/oracle-cne/prometheus/prometheu
 COPY --from=builder /workspace/go/src/github.com/oracle-cne/prometheus/bin/promtool /bin/promtool
 COPY documentation/examples/prometheus.yml /etc/prometheus
 COPY LICENSE THIRD_PARTY_LICENSES.txt NOTICE olm/SECURITY.md /usr/share/licenses/prometheus/
-RUN ln -s /etc/prometheus/ &&\
+RUN microdnf update -y &&\
+    microdnf clean all &&\
+    ln -s /etc/prometheus/ &&\
     mkdir -p /prometheus &&\
     chown -R nobody:nobody etc/prometheus /prometheus &&\
     test -d /LICENSES || ln -s /usr/share/licenses /LICENSES
-
-RUN microdnf update -y && \
-    microdnf clean all
 
 USER       nobody
 EXPOSE     9090
