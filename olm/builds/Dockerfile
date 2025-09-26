@@ -24,7 +24,7 @@ FROM container-registry.oracle.com/os/oraclelinux:9-slim
 
 COPY --from=builder /workspace/go/src/github.com/oracle-cne/prometheus/prometheus /bin/prometheus
 COPY --from=builder /workspace/go/src/github.com/oracle-cne/prometheus/bin/promtool /bin/promtool
-COPY documentation/examples/prometheus.yml /etc/prometheus
+COPY documentation/examples/prometheus.yml /etc/prometheus/prometheus.yml
 COPY LICENSE THIRD_PARTY_LICENSES.txt NOTICE olm/SECURITY.md /usr/share/licenses/prometheus/
 RUN microdnf update -y &&\
     microdnf clean all &&\
