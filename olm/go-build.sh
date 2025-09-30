@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 mkdir -p bin
-version="3.5.0"
+version="{{{ .major }}}.{{{ .minor }}}.{{{ .patch }}}"
 
 GIT_REVISION=$(git rev-parse HEAD)
 BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')

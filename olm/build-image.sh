@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 name="prometheus"
-version="3.5.0"
+version="{{{ .major }}}.{{{ .minor }}}.{{{ .patch }}}"
 registry="container-registry.oracle.com/olcne"
 docker_tag=${registry}/${name}:v${version}
 
