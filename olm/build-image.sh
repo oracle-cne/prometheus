@@ -12,6 +12,7 @@ podman cp tmpcopy:/bin/promu bin/promtool
 podman rm tmpcopy
 
 podman build --pull \
+    --network=host \
     --build-arg https_proxy=${https_proxy} \
     --volume /etc/yum.repos.d:/etc/yum.repos.d \
     --volume ~/.npmrc:/.npmrc \
