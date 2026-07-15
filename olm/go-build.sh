@@ -26,7 +26,7 @@ yarn --version
 go version
 
 echo "make assets npm_licenses assets-compress plugins"
-make assets npm_licenses assets-compress plugins
+make assets assets-compress plugins
 
 echo "promtool build"
 promtool build
