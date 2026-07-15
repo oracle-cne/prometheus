@@ -6,7 +6,6 @@ RUN dnf config-manager --enable ol9_codeready_builder && \
     dnf module enable -y nodejs:22 && \
     dnf install -y nodejs npm && \
     dnf -y install git make golang bzip2 yq yarnpkg patch && \
-    npm install -g pnpm@latest-11 && \
     go version
 
 # Copy the contents of the repository
@@ -18,6 +17,7 @@ ENV GOPATH_SRC=$GOPATH/src/github.com/oracle-cne/prometheus
 WORKDIR /workspace/go/src/github.com/oracle-cne/prometheus
 
 RUN git config --global --add safe.directory $(pwd) && \
+    npm install -g pnpm@latest-11 && \
     cp bin/promtool /usr/bin && \
     sh olm/go-build.sh
 
